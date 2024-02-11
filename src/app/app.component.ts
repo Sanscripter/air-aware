@@ -11,4 +11,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = '3d-map-visualize';
+  key = process.env['GOOGLE_MAPS_API_KEY'] || "";
 }

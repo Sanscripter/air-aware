@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { google } from 'google-maps';
 import { Component, OnInit } from '@angular/core';
+import { Loader, LoaderOptions} from 'google-maps';
 import { Cartesian2, Cartesian3, Cartesian4, Cartographic, Cesium3DTileStyle, Cesium3DTileset, CircleEmitter, CloudCollection, Color, ConstantProperty, Ellipsoid, HeightReference, ImageryLayer, JulianDate, Matrix4, OpenStreetMapImageryProvider, ParticleSystem, PolygonHierarchy, RequestScheduler, SceneMode, SphereEmitter, Terrain, Viewer, createWorldTerrainAsync, sampleTerrainMostDetailed, viewerDragDropMixin } from "cesium";
 
 interface AirQuality {
@@ -28,20 +28,30 @@ export class InteractiveViewComponent implements OnInit {
 
   placeCoord!: Cartesian3[];
   clouds!: CloudCollection;
-
+  viewer!: Viewer;
+  key = process.env['GOOGLE_MAPS_API_KEY'] || "";
+  google: any;
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
 
-  viewer!: Viewer;
-  key = "AIzaSyCOSK5AV7RZKIjrECLM5VDHwULD1d4rqYU";
+  }
+
 
   async ngOnInit() {
+    console.log(this.key);
+    const googleMapsLoader = new Loader(this.key, {
+      version: "weekly",
+      libraries: [
+        "places",
+      ],
+    });
+    this.google = await googleMapsLoader.load();
+
     this.viewer = new Viewer('viewer', {
       sceneMode: SceneMode.SCENE3D,
       terrain: Terrain.fromWorldTerrain(),
       geocoder: false,
-
       baseLayerPicker: false,
       requestRenderMode: true,
       navigationHelpButton: false,
@@ -59,19 +69,16 @@ export class InteractiveViewComponent implements OnInit {
 
     RequestScheduler.requestsByServer["tile.googleapis.com:443"] = 18;
 
+    const tileset = await Cesium3DTileset
+      .fromUrl(`https://tile.googleapis.com/v1/3dtiles/root.json?key=${this.key}`);
 
     tileset.showCreditsOnScreen = true;
-
-
-    this.initAutocomplete()
-
-
-
-
-
     this.viewer.scene.primitives.add(tileset);
     this.viewer.scene.globe.show = false;
     this.viewer.scene.screenSpaceCameraController.enableCollisionDetection = true;
+
+    this.initAutocomplete()
+
 
   }
 
@@ -108,7 +115,7 @@ export class InteractiveViewComponent implements OnInit {
 
   initAutocomplete() {
     console.log("initAutocomplete");
-    const autocomplete = new google.maps.places.Autocomplete(
+    const autocomplete = new this.google.maps!.places.Autocomplete(
       document.getElementById("pacViewPlace") as HTMLInputElement,
       {
         fields: [
@@ -123,12 +130,12 @@ export class InteractiveViewComponent implements OnInit {
       console.log("place_changed");
       this.viewer.entities.removeAll();
       const place = autocomplete.getPlace();
-      const geocoder = new google.maps.Geocoder();
+      const geocoder = new this.google.maps.Geocoder();
       console.log(place);
       geocoder.geocode({
         location: place.geometry!.location,
-      }, (results, status) => {
-        if (status == google.maps.GeocoderStatus.OK) {
+      }, (results: any, status: any) => {
+        if (status == this.google.maps.GeocoderStatus.OK) {
           const latitude = results[0].geometry.location.lat();
           const longitude = results[0].geometry.location.lng();
           this.http.post(`https://airquality.googleapis.com/v1/currentConditions:lookup?key=${this.key}`, {
