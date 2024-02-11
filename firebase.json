@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/3d-map-visualize/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
