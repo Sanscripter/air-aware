@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "dist/air-aware",
+    "site": "air-aware",
     "ignore": [
       "firebase.json",
       "**/.*",
