@@ -16,7 +16,7 @@
             "customWebpackConfig": {
               "path": "src/custom-webpack.config.ts"
             },
-            "outputPath": "dist/3d-map-visualize",
+            "outputPath": "dist/air-aware",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [

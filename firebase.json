@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/3d-map-visualize/browser",
+    "public": "dist/air-aware",
     "ignore": [
       "firebase.json",
       "**/.*",
