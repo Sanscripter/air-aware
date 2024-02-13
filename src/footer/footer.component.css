@@ -1,0 +1,9 @@
+footer {
+  bottom: -10%;
+}
+
+@media screen and (max-width: 768px){
+  footer {
+    bottom: unset;
+  }
+}

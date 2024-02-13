@@ -4,9 +4,6 @@ import { AppComponent } from './app/app.component';
 import * as Cesium from 'cesium';
 
 
-// Cesium.Ion.defaultAccessToken = environment.accessToken;
-/* If you need to use Ion Features, you will need to add your personal token, add it at environment and import it at your main.ts for usage. Like above or do it as you wish*/
-
 //@ts-ignore
 window['CESIUM_BASE_URL'] = '/assets/cesium/';
 //@ts-ignore

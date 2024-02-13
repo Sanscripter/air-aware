@@ -1,0 +1,17 @@
+{
+  "landing": {
+    "appName": "AirAware",
+    "title": "What are you inhaling?",
+    "description": "Understand what polluants are in the air you breathe and how they affect your health. Warn local policy makers and take action to improve air quality for you and everyone else.",
+    "inputPlaceholder": "Insert a location"
+  },
+  "location-form": {
+    "inputPlaceholder": "Insert a location",
+    "buttonText": "Go"
+  },
+  "footer": {
+    "madeBy": "Made with 💻 by",
+    "sourceCode": "Check the source",
+    "privacyPolicy": "Privacy Policy"
+  }
+}

@@ -1,1 +1,12 @@
-<p>landing works!</p>
+<div class="flex md:flex-row flex-col h-full w-full">
+  <div class="md:w-1/3 md:overflow-hidden w-full h-full bg-black">
+    <app-video-container></app-video-container>
+  </div>
+  <div
+    class="top-[60%] md:top-0 md:relative absolute md:rounded-s-lg md:rounded-e-none rounded-t-lg h-1/2 md:w-2/3 md:h-full bottom-10 z-10 bg-green-600 lg:p-24 xl:p-40 md:pt-56 md:p-10 pt-10 justify-between text-center md:text-left">
+    <p class="text-sm font-semibold italic">{{ 'landing.appName' | translate}}</p>
+    <p class="lg:text-8xl md:text-7xl text-4xl font-extrabold break-words">{{ 'landing.title' | translate}}</p>
+    <p class="my-5 text-lg ">{{'landing.description' | translate}}</p>
+    <app-location-form (locationString)="handleLocationChange($event)"></app-location-form>
+  </div>
+</div>

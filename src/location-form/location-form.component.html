@@ -1,0 +1,7 @@
+<form [formGroup]="formGroup" class="flex flex-row mx-5 mb-5 md:m-0">
+  <input class="text-gray-400 rounded-tl-md rounded-bl-md p-3 w-full" formControlName="location" type="text"
+    placeholder="{{'location-form.inputPlaceholder'| translate }}">
+  <button
+    class="rounded-tr-md rounded-br-md p-3 bg-purple-600 focus:outline-none hover:bg-purple-700 active:bg-purple-800 shadow-md transition-colors duration-300 ease-in-out"
+    (click)="emitLocationString()">{{'location-form.buttonText' | translate}}</button>
+</form>
