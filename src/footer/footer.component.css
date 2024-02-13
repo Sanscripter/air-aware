@@ -1,9 +1,24 @@
 footer {
-  bottom: -10%;
+  bottom: 88%;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (min-width: 321px){
   footer {
-    bottom: unset;
+    bottom: -25%;
   }
 }
+
+@media screen and (min-width: 768px){
+  footer {
+    bottom: -3%;
+  }
+
+}
+
+@media screen and (min-width: 1000px){
+  footer {
+    bottom: 1%;
+  }
+
+}
+
