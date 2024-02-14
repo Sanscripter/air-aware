@@ -16,7 +16,4 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = '3d-map-visualize';
-  key = process.env['GOOGLE_MAPS_API_KEY'] || "";
-}
+export class AppComponent {}

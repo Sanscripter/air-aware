@@ -7,6 +7,6 @@
     <p class="text-sm font-semibold italic">{{ 'landing.appName' | translate}}</p>
     <p class="lg:text-8xl md:text-7xl text-4xl font-extrabold break-words">{{ 'landing.title' | translate}}</p>
     <p class="my-5 text-lg ">{{'landing.description' | translate}}</p>
-    <app-location-form (locationString)="handleLocationChange($event)"></app-location-form>
+    <app-location-form (confirmedLocation)="handleFormAction()"></app-location-form>
   </div>
 </div>

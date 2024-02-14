@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MapsService } from '../services/maps.service';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -22,7 +23,8 @@ export const appConfig: ApplicationConfig = {
           useFactory: createTranslateLoader,
           deps: [HttpClient],
         },
-      })
+      }),
+      MapsService
     ),
   ]
 };

@@ -13,5 +13,9 @@
     "madeBy": "Made with 💻 by",
     "sourceCode": "Check the source",
     "privacyPolicy": "Privacy Policy"
+  },
+  "console": {
+    "air-quality": "Air Quality",
+    "pollutants": "Pollutants"
   }
 }
