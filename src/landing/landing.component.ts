@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { LocationFormComponent } from '../location-form/location-form.component';
 import { VideoContainerComponent } from '../video-container/video-container.component';
 import { Router, RouterModule } from '@angular/router';
 import { MapsService } from '../services/maps.service';
+import { FormValue, SearchFormComponent } from '../search-form/searchForm.component';
 
 @Component({
   selector: 'app-landing',
@@ -12,7 +12,7 @@ import { MapsService } from '../services/maps.service';
   imports: [
     CommonModule,
     TranslateModule,
-    LocationFormComponent,
+    SearchFormComponent,
     VideoContainerComponent,
     RouterModule,
   ],
@@ -21,15 +21,24 @@ import { MapsService } from '../services/maps.service';
 })
 export class LandingComponent {
 
+  suggestedLocations: any[] = [];
+
   constructor(private router: Router, public mapsService: MapsService) {}
 
    async ngOnInit() {
     await this.mapsService.initMaps();
+    this.mapsService.placeSuggestions$.subscribe((suggestions: any) => {
+      this.suggestedLocations = suggestions;
+    });
    }
 
 
-  handleFormAction() {
-    this.router.navigate(['/check-quality']);
+  handleFormOnChange(formValue: FormValue) {
+    this.mapsService.getPlaceSuggestions(formValue.location);
   }
 
+  handleFormOnSelected(location: any) {
+    this.mapsService.setSelectedLocation(location);
+    this.router.navigate(['/quality']);
+  }
 }

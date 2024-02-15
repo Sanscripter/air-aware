@@ -182,14 +182,14 @@
     "symbol-observable" "4.0.0"
     "yargs" "17.7.2"
 
-"@angular/common@^17.0.0", "@angular/common@17.0.9":
+"@angular/common@^17.0.0", "@angular/common@>=16.0.0", "@angular/common@17.0.9":
   "integrity" "sha512-xNS7DDfvFqfLr6xeZNJ+jORuGXP6hhv2HsYD3jb6ZQ8+QuMg+3MDij4a0L5npn72gH/Zz4JRKZ3Bt4Cq6cUqUA=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-17.0.9.tgz"
   "version" "17.0.9"
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/compiler-cli@^17.0.0", "@angular/compiler-cli@>=13.0.0 <18.0.0", "@angular/compiler-cli@>=15.0.0 <18.0.0":
+"@angular/compiler-cli@^17.0.0", "@angular/compiler-cli@>=13.0.0 <18.0.0", "@angular/compiler-cli@>=15.0.0 <18.0.0", "@angular/compiler-cli@17.0.9":
   "integrity" "sha512-fpbs8ZuHi2Z/uOIAxEICzQ1aYbc8Z2TOjB0PDP1RJ1kQmtlWNWxgMqV/uJ59sJO9AMYxc496msMtmOa3OByPYQ=="
   "resolved" "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-17.0.9.tgz"
   "version" "17.0.9"
@@ -210,7 +210,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^17.0.0", "@angular/core@>=13.0.0 <18.0.0", "@angular/core@>=15.0.0 <18.0.0", "@angular/core@17.0.9":
+"@angular/core@^17.0.0", "@angular/core@>=13.0.0 <18.0.0", "@angular/core@>=15.0.0 <18.0.0", "@angular/core@>=16.0.0", "@angular/core@17.0.9":
   "integrity" "sha512-LtDWzyx19XNmAjXju9xjw//rDZPUFu2bllHqzS6NVO1bE4PwJHIs0zfvygh0j46ubKp1gUICNk3jvYK9FMVinA=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-17.0.9.tgz"
   "version" "17.0.9"
@@ -223,6 +223,15 @@
   "version" "17.0.9"
   dependencies:
     "tslib" "^2.3.0"
+
+"@angular/localize@^17.0.0", "@angular/localize@^17.0.9":
+  "integrity" "sha512-myLcvyzn/ShUTpbrIu4MPizCxv2RwGYOTWZBd6XwXiXu5+Kiu7mpQZ+BiElseEF6Dsw1HUgsIkbUS+hAR0GBLQ=="
+  "resolved" "https://registry.npmjs.org/@angular/localize/-/localize-17.0.9.tgz"
+  "version" "17.0.9"
+  dependencies:
+    "@babel/core" "7.23.2"
+    "fast-glob" "3.3.1"
+    "yargs" "^17.2.1"
 
 "@angular/platform-browser-dynamic@^17.0.0", "@angular/platform-browser-dynamic@>=13.0.0 <18.0.0", "@angular/platform-browser-dynamic@>=15.0.0 <18.0.0":
   "integrity" "sha512-44wIecNzxEUi3T/bggeJsgK+iD7Snu64sqQg00ewsuFCMpaWwyC80LnTIff/QnBVoggAjXvEql6vwr3AZNTcuQ=="
@@ -2128,6 +2137,16 @@
   "integrity" "sha512-UCiLrV2aLrtR7Wr/jJi0nH2Xzb7ETenrPWU/EcW9V3lnlDun5g1J0y01jRzvcipxNTOmFfI4lqv288nKSmSOAA=="
   "resolved" "https://registry.npmjs.org/@ngtools/webpack/-/webpack-17.0.10.tgz"
   "version" "17.0.10"
+
+"@ngx-translate/core@^15.0.0", "@ngx-translate/core@>=15.0.0":
+  "integrity" "sha512-Am5uiuR0bOOxyoercDnAA3rJVizo4RRqJHo8N3RqJ+XfzVP/I845yEnMADykOHvM6HkVm4SZSnJBOiz0Anx5BA=="
+  "resolved" "https://registry.npmjs.org/@ngx-translate/core/-/core-15.0.0.tgz"
+  "version" "15.0.0"
+
+"@ngx-translate/http-loader@^8.0.0":
+  "integrity" "sha512-SFMsdUcmHF5OdZkL1CHEoSAwbP5EbAOPTLLboOCRRoOg21P4GJx+51jxGdJeGve6LSKLf4Pay7BkTwmE6vxYlg=="
+  "resolved" "https://registry.npmjs.org/@ngx-translate/http-loader/-/http-loader-8.0.0.tgz"
+  "version" "8.0.0"
 
 "@nodelib/fs.scandir@2.1.5":
   "integrity" "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="
@@ -7638,7 +7657,7 @@
   "resolved" "https://registry.npmjs.org/rx/-/rx-4.1.0.tgz"
   "version" "4.1.0"
 
-"rxjs@^6.5.3 || ^7.4.0", "rxjs@^7.8.1", "rxjs@~7.8.0", "rxjs@7.8.1":
+"rxjs@^6.5.3 || ^7.4.0", "rxjs@^6.5.5 || ^7.4.0", "rxjs@^7.8.1", "rxjs@~7.8.0", "rxjs@7.8.1":
   "integrity" "sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg=="
   "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-7.8.1.tgz"
   "version" "7.8.1"

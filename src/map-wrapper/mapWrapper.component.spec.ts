@@ -1,17 +1,17 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { InteractiveViewComponent } from './InteractiveView.component';
+import { MapWrapperComponent } from './mapWrapper.component';
 
-describe('InteractiveViewComponent', () => {
-  let component: InteractiveViewComponent;
-  let fixture: ComponentFixture<InteractiveViewComponent>;
+describe('MapWrapperComponent', () => {
+  let component: MapWrapperComponent;
+  let fixture: ComponentFixture<MapWrapperComponent>;
 
   beforeEach(async(() => {
     // TestBed.configureTestingModule({
-    //   declarations: [ InteractiveViewComponent ]
+    //   declarations: [ MapWrapperComponent ]
     // })
     // .compileComponents();
-    // fixture = TestBed.createComponent(InteractiveViewComponent);
+    // fixture = TestBed.createComponent(MapWrapperComponent);
     // component = fixture.componentInstance;
     // fixture.detectChanges();
   }));

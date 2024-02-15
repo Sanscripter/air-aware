@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { LandingComponent } from '../landing/landing.component';
-import { ConsoleComponent } from '../console/console.component';
+import { SimulationViewComponent } from '../simulation-view/simulationView.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'check-quality', component: ConsoleComponent }
+  { path: 'quality', component: SimulationViewComponent}
 ];

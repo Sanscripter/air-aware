@@ -15,17 +15,17 @@ export class MapsService {
 
   _selectedLocation: any = null;
   _locationCoords: Location | null = null;
-  google: google | null = null;
   _placeSuggestions: any[] = [];
+  google: google | null = null;
   autocomplete: google.maps.places.AutocompleteService | null = null;
+
   key = process.env['GOOGLE_MAPS_API_KEY'] || "";
   selectedLocation$ = new BehaviorSubject<any>(this._selectedLocation);
   placeSuggestions$ = new BehaviorSubject<any[]>(this._placeSuggestions);
   locationCoords$ = new BehaviorSubject<Location | null>(this._locationCoords);
 
-  constructor() { }
-
   async initMaps() {
+    if (this.google?.maps) return;
     const googleMapsLoader = new Loader(this.key, {
       version: "weekly",
       libraries: [
@@ -34,13 +34,12 @@ export class MapsService {
     });
     this.google = await googleMapsLoader.load();
     this.autocomplete = new this.google.maps.places.AutocompleteService()
-
   }
 
   setSelectedLocation(location: any) {
-    console.log('Location changed:', location);
     this._selectedLocation = location;
     this.selectedLocation$.next(this._selectedLocation);
+    this.getPlaceCoords();
   }
 
   getPlaceSuggestions(input: string) {

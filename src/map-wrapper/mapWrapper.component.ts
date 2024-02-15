@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Cartesian2, Cartesian3, Cartesian4, Cartographic, Cesium3DTileStyle, Cesium3DTileset, CircleEmitter, CloudCollection, Color, ConstantProperty, Ellipsoid, HeightReference, ImageryLayer, JulianDate, Matrix4, OpenStreetMapImageryProvider, ParticleSystem, PolygonHierarchy, RequestScheduler, SceneMode, SphereEmitter, Terrain, Viewer, createWorldTerrainAsync, sampleTerrainMostDetailed, viewerDragDropMixin } from "cesium";
 
 interface AirQuality {
@@ -15,19 +15,23 @@ interface AirQuality {
 
 
 @Component({
-  selector: 'app-InteractiveView',
+  selector: 'map-wrapper',
   standalone: true,
   imports: [
     HttpClientModule
   ],
-  templateUrl: './InteractiveView.component.html',
-  styleUrls: ['./InteractiveView.component.css']
+  templateUrl: './mapWrapper.component.html',
+  styleUrls: ['./mapWrapper.component.css']
 })
-export class InteractiveViewComponent implements OnInit {
+export class MapWrapperComponent implements AfterViewInit {
 
-  @Input() placeCoords: any;
+  @Input() set placeCoords(value: any) {
+    this._placeCoords = value;
+    this.zoomToViewport();
+  };
   @Input() key: string = "";
 
+  _placeCoords: any;
   clouds!: CloudCollection;
   viewer!: Viewer;
   constructor(
@@ -37,8 +41,12 @@ export class InteractiveViewComponent implements OnInit {
   }
 
 
-  async ngOnInit() {
+  async ngAfterViewInit() {
+    await this.setupViewer();
+    this.zoomToViewport();
+  }
 
+  async setupViewer() {
     this.viewer = new Viewer('viewer', {
       sceneMode: SceneMode.SCENE3D,
       terrain: Terrain.fromWorldTerrain(),
@@ -54,8 +62,7 @@ export class InteractiveViewComponent implements OnInit {
       infoBox: false,
       animation: false,
     });
-
-
+    console.log("setupViewer", this.key);
     RequestScheduler.requestsByServer["tile.googleapis.com:443"] = 18;
     const tileset = await Cesium3DTileset
       .fromUrl(`https://tile.googleapis.com/v1/3dtiles/root.json?key=${this.key}`);
@@ -64,21 +71,18 @@ export class InteractiveViewComponent implements OnInit {
     this.viewer.scene.primitives.add(tileset);
     this.viewer.scene.globe.show = false;
     this.viewer.scene.screenSpaceCameraController.enableCollisionDetection = true;
-
-    this.zoomToViewport();
-
   }
 
   zoomToViewport() {
-    console.log("zoomToViewport", this.placeCoords);
+    console.log("zoomToViewport", this._placeCoords);
     var squareSizeDegrees = 0.001; // Adjust as needed
     this.viewer.entities.removeAll();
 
     const coord = Cartesian3.fromDegreesArray([
-      this.placeCoords.longitude + squareSizeDegrees / 2, this.placeCoords.latitude + squareSizeDegrees / 2,
-      this.placeCoords.longitude - squareSizeDegrees / 2, this.placeCoords.latitude + squareSizeDegrees / 2,
-      this.placeCoords.longitude + squareSizeDegrees / 2, this.placeCoords.latitude - squareSizeDegrees / 2,
-      this.placeCoords.longitude - squareSizeDegrees / 2, this.placeCoords.latitude - squareSizeDegrees / 2,
+      this._placeCoords.longitude + squareSizeDegrees / 2, this._placeCoords.latitude + squareSizeDegrees / 2,
+      this._placeCoords.longitude - squareSizeDegrees / 2, this._placeCoords.latitude + squareSizeDegrees / 2,
+      this._placeCoords.longitude + squareSizeDegrees / 2, this._placeCoords.latitude - squareSizeDegrees / 2,
+      this._placeCoords.longitude - squareSizeDegrees / 2, this._placeCoords.latitude - squareSizeDegrees / 2,
     ]);
 
     this.viewer.entities.add({
@@ -92,6 +96,7 @@ export class InteractiveViewComponent implements OnInit {
 
     this.viewer.flyTo(this.viewer.entities);
     this.viewer.zoomTo(this.viewer.entities);
+    // this.viewer.camera.move
 
   }
 

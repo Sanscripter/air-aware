@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LocationFormComponent } from './location-form.component';
+import { SearchFormComponent } from './searchForm.component';
 import { TranslateModule } from '@ngx-translate/core';
 
-describe('LocationFormComponent', () => {
-  let component: LocationFormComponent;
-  let fixture: ComponentFixture<LocationFormComponent>;
+describe('SearchFormComponent', () => {
+  let component: SearchFormComponent;
+  let fixture: ComponentFixture<SearchFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        LocationFormComponent,
+        SearchFormComponent,
         TranslateModule.forRoot()
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LocationFormComponent);
+    fixture = TestBed.createComponent(SearchFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
