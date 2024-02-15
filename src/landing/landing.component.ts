@@ -5,6 +5,7 @@ import { VideoContainerComponent } from '../video-container/video-container.comp
 import { Router, RouterModule } from '@angular/router';
 import { MapsService } from '../services/maps.service';
 import { FormValue, SearchFormComponent } from '../search-form/searchForm.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-landing',
@@ -15,6 +16,7 @@ import { FormValue, SearchFormComponent } from '../search-form/searchForm.compon
     SearchFormComponent,
     VideoContainerComponent,
     RouterModule,
+    FooterComponent
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css'

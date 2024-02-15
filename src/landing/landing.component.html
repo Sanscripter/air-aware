@@ -3,11 +3,12 @@
     <app-video-container></app-video-container>
   </div>
   <div
-    class="top-[50%] md:top-0 md:relative absolute md:rounded-s-lg md:rounded-e-none rounded-t-lg h-4/5 md:w-2/3 md:h-full z-10 bg-green-600 lg:p-24 xl:p-40 md:pt-40 md:p-10 pt-10 px-10  justify-between text-center md:text-left">
+    class="flex flex-col top-[50%] md:top-0 md:relative absolute md:rounded-s-lg md:rounded-e-none rounded-t-lg h-4/5 md:w-2/3 md:h-full z-10 bg-green-600 lg:p-24 lg:pb-2 xl:p-40 xl:pb-2 md:pt-40 md:p-10 md:pb-2 pt-10 px-10  justify-between text-center md:text-left pb-2">
     <p class="text-sm font-semibold italic">{{ 'landing.appName' | translate}}</p>
     <p class="lg:text-8xl md:text-7xl text-4xl font-extrabold break-words">{{ 'landing.title' | translate}}</p>
     <p class="my-5 text-lg ">{{'landing.description' | translate}}</p>
     <search-form [suggestionsList]="suggestedLocations" (onChange)="handleFormOnChange($event)"
       (onSelected)="handleFormOnSelected($event)"></search-form>
+    <app-footer class="mt-auto"></app-footer>
   </div>
 </div>
