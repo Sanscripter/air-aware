@@ -3,8 +3,12 @@
     <map-wrapper [placeCoords]="placeCoords" [key]="apiKey"></map-wrapper>
   </div>
   <div
-    class="top-[50%] md:top-0 md:relative absolute md:rounded-s-lg md:rounded-e-none rounded-t-lg h-4/5 md:w-1/2 md:h-full z-10 bg-green-600 lg:p-24 xl:p-40 md:pt-40 md:p-10 pt-10 px-10  justify-between text-center md:text-left">
+    class="top-[50%] md:top-0 md:relative absolute md:rounded-s-lg md:rounded-e-none rounded-t-lg h-4/5 md:w-1/2 md:h-full z-10 bg-green-600 lg:p-24 xl:p-30 md:pt-40 md:p-10 pt-10 px-10  justify-between text-center md:text-left">
     <h1 class="text-4xl font-extrabold break-words">{{location.description}}</h1>
+    <p>AIR QUALITY INDEX</p>
+    <p>Time</p>
+    <p>Dominant pollutant</p>
+
     <p class="my-5 text-lg text-right">{{'console.air-quality' | translate}}</p>
     <p class="my-5 text-lg text-right">{{'console.pollutants' | translate}}</p>
     <p class="my-5 text-lg text-right">pollutant data</p>

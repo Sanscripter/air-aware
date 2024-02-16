@@ -39,6 +39,9 @@ export class SimulationViewComponent implements OnDestroy {
     this.subscriptions.push(this.mapsService.selectedLocation$.subscribe((location: any) => {
       this.location = location;
     }));
+    this.subscriptions.push(this.mapsService.localAirquality$.subscribe((airQuality: any) => {
+      console.log("localAirquality", airQuality);
+    }));
 
     this.apiKey = this.mapsService.key;
 

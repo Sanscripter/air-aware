@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -20,7 +20,7 @@ export interface FormValue {
   templateUrl: './searchForm.component.html',
   styleUrl: './searchForm.component.css'
 })
-export class SearchFormComponent implements OnDestroy {
+export class SearchFormComponent implements OnDestroy, AfterViewInit {
 
   @Input() suggestionsList: any[] = [];//TODO: retype
 
@@ -48,7 +48,7 @@ export class SearchFormComponent implements OnDestroy {
     }))
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.suggestionsList = [];
   }
 
