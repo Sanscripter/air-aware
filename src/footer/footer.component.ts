@@ -11,5 +11,13 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+  showPrivacyPolicy: boolean = false;
 
+  openPrivacyPolicy() {
+    this.showPrivacyPolicy = true;
+  }
+
+  closePrivacyPolicy() {
+    this.showPrivacyPolicy = false;
+  }
 }
