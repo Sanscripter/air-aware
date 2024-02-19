@@ -37,6 +37,7 @@ export class SearchFormComponent implements OnDestroy, AfterViewInit {
     this.formGroup = this.formBuilder.group({
       location: ['', Validators.required]
     })
+
     this.subscriptions.push(this.formGroup.valueChanges.pipe(
       debounceTime(500)
     ).subscribe((value: FormValue) => {

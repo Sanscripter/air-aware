@@ -2,7 +2,7 @@
   <div class="w-full">
     <input class="text-gray-400 rounded-tl-md rounded-bl-md p-3 w-full" formControlName="location" type="text"
       placeholder="{{'location-form.inputPlaceholder'| translate }}">
-    @if (suggestionsList.length > 0) {
+    @if (suggestionsList && suggestionsList.length > 0) {
     <div class="absolute h-max-[18%] top-100 mt-1 border bg-white shadow-xl rounded w-2/3 overflow-y-scroll">
       <div class="p-3">
         <div class="divide-y">
