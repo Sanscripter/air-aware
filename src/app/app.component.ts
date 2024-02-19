@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FooterComponent } from '../footer/footer.component';
 
 @Component({
@@ -16,4 +16,9 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+    this.translate.use(this.translate.getBrowserLang()!);
+  }
+}

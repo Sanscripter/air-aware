@@ -1,0 +1,25 @@
+{
+  "landing": {
+    "appName": "AirAware",
+    "title": "O que você está respirando?",
+    "description": "Compreenda quais poluentes estão no ar que você respira e como eles afetam sua saúde. Alerta os formuladores de políticas locais e tome medidas para melhorar a qualidade do ar para você e para todos os outros.",
+    "inputPlaceholder": "Inserir uma localização"
+  },
+  "location-form": {
+    "inputPlaceholder": "Inserir uma localização",
+    "buttonText": "Ir"
+  },
+  "footer": {
+    "madeBy": "Feito com 💻 por",
+    "sourceCode": "Ver código-fonte",
+    "privacyPolicy": "Política de Privacidade",
+    "close": "Fechar",
+    "privacyPolicyContent": "\nObrigado por visitar o AirAware (o 'Website'). Esta Política de Privacidade foi criada para informá-lo sobre como coletamos, usamos e protegemos qualquer informação que você nos forneça ao usar nosso Website.\n\n1. Informações que Coletamos:\n\n   a. Informações Pessoais:\n      - Não coletamos nenhuma informação de identificação pessoal, como seu nome, endereço ou detalhes de contato, a menos que você os forneça explicitamente de forma voluntária.\n\n   b. Informações Não Pessoais:\n      - Podemos coletar informações não pessoais, como tipo de navegador, preferência de idioma, site de referência e data e hora de cada solicitação de visita. Essas informações nos ajudam a entender melhor como os visitantes usam nosso Website.\n\n   c. Cookies:\n      - Usamos cookies para melhorar sua experiência no Website. Cookies são pequenos arquivos de dados armazenados em seu navegador que nos ajudam a melhorar nossos serviços e fornecer uma experiência mais personalizada. Você pode optar por desativar os cookies nas configurações do seu navegador, mas isso pode afetar determinadas funcionalidades do Website.\n\n   d. Análises:\n      - Utilizamos ferramentas de análise (por exemplo, Google Analytics) para coletar informações sobre seu uso do Website. Esses dados incluem informações agregadas e anonimizadas, como páginas visitadas, tempo gasto no site e informações demográficas gerais. As análises nos ajudam a analisar o comportamento do usuário e melhorar nosso conteúdo e serviços.\n\n2. Como Usamos Suas Informações:\n\n   a. Informações Pessoais:\n      - Não vendemos, comercializamos ou transferimos de outra forma suas informações de identificação pessoal para terceiros.\n\n   b. Informações Não Pessoais:\n      - As informações não pessoais coletadas são usadas para análise estatística e para melhorar o conteúdo e a funcionalidade do Website.\n\n   c. Análises:\n      - Os dados de análise são usados para entender o comportamento do usuário, melhorar a experiência do usuário e aprimorar nossos serviços.\n\n3. Links de Terceiros:\n   - Nosso Website pode conter links para sites de terceiros. Não temos controle sobre o conteúdo ou as práticas de privacidade desses websites e incentivamos você a revisar suas políticas de privacidade antes de fornecer qualquer informação pessoal.\n\n4. Segurança:\n   - Estamos comprometidos em garantir a segurança de suas informações. Embora nos esforcemos para usar meios comercialmente aceitáveis ​​para proteger suas informações pessoais, nenhum método de transmissão pela Internet ou armazenamento eletrônico é 100% seguro e não podemos garantir segurança absoluta.\n\n5. Alterações a Esta Política de Privacidade:\n   - Reservamos o direito de atualizar ou alterar nossa Política de Privacidade a qualquer momento. Quaisquer modificações serão efetivas imediatamente após a publicação da Política de Privacidade atualizada no Website. Seu uso contínuo do Website após quaisquer alterações constitui aceitação dessas alterações.\n\nAo usar nosso Website, você concorda com os termos descritos nesta Política de Privacidade. Por favor, verifique regularmente para atualizações.\n\nObrigado por confiar no AirAware!"
+  },
+  "console": {
+    "air-quality": "Qualidade do Ar",
+    "pollutants": "Poluentes",
+    "mainPollutant": "Principal Poluente",
+    "noData": "NENHUM DADO DE POLUENTE DISPONÍVEL"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "landing": {
+    "appName": "AirAware",
+    "title": "¿Qué estás inhalando?",
+    "description": "Comprende qué contaminantes hay en el aire que respiras y cómo afectan tu salud. Advierte a los responsables de las políticas locales y toma medidas para mejorar la calidad del aire para ti y para todos los demás.",
+    "inputPlaceholder": "Insertar una ubicación"
+  },
+  "location-form": {
+    "inputPlaceholder": "Insertar una ubicación",
+    "buttonText": "Ir"
+  },
+  "footer": {
+    "madeBy": "Hecho con 💻 por",
+    "sourceCode": "Ver el código fuente",
+    "privacyPolicy": "Política de Privacidad",
+    "close": "Cerrar",
+    "privacyPolicyContent": "\nGracias por visitar AirAware (el 'Sitio web'). Esta Política de Privacidad está diseñada para informarte sobre cómo recopilamos, utilizamos y protegemos cualquier información que nos proporciones mientras utilizas nuestro Sitio web.\n\n1. Información que Recopilamos:\n\n   a. Información Personal:\n      - No recopilamos ninguna información de identificación personal, como tu nombre, dirección o detalles de contacto a menos que nos los proporciones explícitamente de forma voluntaria.\n\n   b. Información no Personal:\n      - Podemos recopilar información no personal, como el tipo de navegador, la preferencia de idioma, el sitio de referencia y la fecha y hora de cada solicitud de visita. Esta información nos ayuda a comprender mejor cómo los visitantes utilizan nuestro Sitio web.\n\n   c. Cookies:\n      - Utilizamos cookies para mejorar tu experiencia en el Sitio web. Las cookies son pequeños archivos de datos almacenados en tu navegador que nos ayudan a mejorar nuestros servicios y ofrecer una experiencia más personalizada. Puedes optar por deshabilitar las cookies en la configuración de tu navegador, pero esto puede afectar ciertas funcionalidades del Sitio web.\n\n   d. Analítica:\n      - Utilizamos herramientas de análisis (por ejemplo, Google Analytics) para recopilar información sobre tu uso del Sitio web. Estos datos incluyen información agregada y anonimizada, como páginas visitadas, tiempo empleado en el sitio e información demográfica general. La analítica nos ayuda a analizar el comportamiento del usuario y mejorar nuestro contenido y servicios.\n\n2. Cómo Utilizamos tu Información:\n\n   a. Información Personal:\n      - No vendemos, intercambiamos ni transferimos de ninguna otra forma tu información de identificación personal a terceros.\n\n   b. Información no Personal:\n      - La información no personal recopilada se utiliza para análisis estadísticos y para mejorar el contenido y la funcionalidad del Sitio web.\n\n   c. Analítica:\n      - Los datos de analítica se utilizan para comprender el comportamiento del usuario, mejorar la experiencia del usuario y mejorar nuestros servicios.\n\n3. Enlaces de Terceros:\n   - Nuestro Sitio web puede contener enlaces a sitios web de terceros. No tenemos control sobre el contenido o las prácticas de privacidad de estos sitios web y te recomendamos que revises sus políticas de privacidad antes de proporcionar cualquier información personal.\n\n4. Seguridad:\n   - Estamos comprometidos a garantizar la seguridad de tu información. Si bien nos esforzamos por utilizar medios comercialmente aceptables para proteger tu información personal, ningún método de transmisión por Internet o almacenamiento electrónico es 100% seguro, y no podemos garantizar seguridad absoluta.\n\n5. Cambios en Esta Política de Privacidad:\n   - Nos reservamos el derecho de actualizar o cambiar nuestra Política de Privacidad en cualquier momento. Cualquier modificación será efectiva inmediatamente después de publicar la Política de Privacidad actualizada en el Sitio web. El uso continuado del Sitio web después de cualquier cambio constituye la aceptación de esos cambios.\n\nAl utilizar nuestro Sitio web, aceptas los términos descritos en esta Política de Privacidad. Por favor, revisa regularmente para obtener actualizaciones.\n\n¡Gracias por confiar en AirAware!"
+  },
+  "console": {
+    "air-quality": "Calidad del Aire",
+    "pollutants": "Contaminantes",
+    "mainPollutant": "Contaminante Principal",
+    "noData": "NO HAY DATOS DE CONTAMINANTES DISPONIBLES"
+  }
+}
