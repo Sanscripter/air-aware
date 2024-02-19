@@ -19,6 +19,8 @@
   },
   "console": {
     "air-quality": "Air Quality",
-    "pollutants": "Pollutants"
+    "pollutants": "Pollutants",
+    "mainPollutant": "Main Pollutant",
+    "noData": "NO POLLUTANT DATA AVAILABLE"
   }
 }

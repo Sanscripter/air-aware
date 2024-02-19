@@ -1,45 +1,54 @@
 <div class="flex md:flex-row flex-col h-full w-full">
   <div class="md:w-2/3 md:overflow-hidden w-full h-full bg-black">
     <div class="absolute z-10 top-5 text-purple-700 mx-5 w-1/2 p-3">
-      <h1 class="text-4xl font-extrabold break-words drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{{location?.description}}</h1>
+      <h1 class="text-4xl font-extrabold break-words drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+        {{location?.description}}</h1>
       <p class="text-xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)]">{{localAirQuality?.dateTime | date}}</p>
     </div>
     <map-wrapper [placeCoords]="placeCoords" [key]="apiKey" [airQuality]="localAirQuality"></map-wrapper>
   </div>
   <div
     class="p-3 h-full flex flex-col top-[50%] md:top-0 md:relative absolute md:rounded-s-lg md:rounded-e-none rounded-t-lg md:w-1/3 md:h-full z-10 bg-green-600 justify-between text-center md:text-left">
-    <p class="my-5 text-lg text-right">{{'console.air-quality' | translate}}</p>
     @if(localAirQuality?.indexes?.[0]) {
     <div>
-      <p>Quality ({{localAirQuality?.indexes?.[0]?.displayName}}):</p>
-      <p>{{localAirQuality?.indexes?.[0]?.category}}</p>
-      <p>Main Pollutant:</p>
-      <p>{{localAirQuality?.indexes?.[0]?.dominantPollutant}}</p>
+
+      <div class="h-16 p-3 text-center rounded-md drop-shadow-sm text-lg flex flex-col mb-5" [ngStyle]="{'background-color': qualityColorHex}">
+        <p class="m-auto drop-shadow-2xl">{{localAirQuality?.indexes?.[0]?.category}}</p>
+        <p class="m-auto text-xs">({{localAirQuality?.indexes?.[0]?.displayName}})</p>
+      </div>
+
+      <div class="h-24 p-3 text-center rounded-md drop-shadow-sm text-lg flex flex-col bg-purple-600">
+        <p class="m-auto drop-shadow-2xl text-xs">{{'console.mainPollutant' | translate}}</p>
+        <p class="m-auto drop-shadow-2xl" [innerHTML]="localAirQuality?.indexes?.[0]?.dominantPollutant | pollutantInfo"></p>
+      </div>
     </div>
     }
 
 
-    <div class="overflow-y-scroll h-2/3">
-
-      @if(localPollutants && localPollutants.results && localPollutants.results.length) {
+    @if(localPollutants && localPollutants.results && localPollutants.results.length) {
+    <p class="my-5 text-lg">{{'console.pollutants' | translate}}</p>
+    <div class="overflow-y-scroll my-5">
       <div>
-        <p class="my-5 text-lg text-right">{{'console.pollutants' | translate}}</p>
         @for (pollutant of localPollutants.results[0].measurements; track $index) {
-        <div>
-          <p>Parameter:</p>
-          <p>{{pollutant.parameter}}</p>
-          <p>Value:</p>
-          <p>{{pollutant.value}} {{pollutant.unit}}</p>
+        <div class="flex flex-col px-5 my-2">
+          <div class="flex">
+            <p [innerHTML]="pollutant.parameter | pollutantInfo"></p>
+            <p>{{pollutant.value}} {{pollutant.unit}}</p>
+          </div>
           <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
             <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
           </div>
         </div>
         }
       </div>
-      }
     </div>
+    } @else {
+      <div class="flex flex-col mt-10">
+        <p class="m-auto">{{'console.noData' | translate}}</p>
+      </div>
+    }
 
-    <div>
+    <div class="mt-auto mb-10">
       <search-form [suggestionsList]="suggestedLocations" (onChange)="handleFormOnChange($event)"
         (onSelected)="handleFormOnSelected($event)"></search-form>
     </div>
