@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { MapWrapperComponent } from '../map-wrapper/mapWrapper.component';
 import { FormValue, SearchFormComponent } from '../search-form/searchForm.component';
-import { MapsService } from '../services/maps.service';
+import { FooterComponent } from '../footer/footer.component';
+import { AirQuality, MapsService, Pollutants } from '../services/maps.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 
@@ -15,36 +16,46 @@ import { Subscription } from 'rxjs';
     CommonModule,
     MapWrapperComponent,
     SearchFormComponent,
+    FooterComponent,
     TranslateModule
   ]
 })
 export class SimulationViewComponent implements OnDestroy {
 
   suggestedLocations: any[] = [];
-  placeCoords: any = null;
+  placeCoords: Location | null = null;
+  localAirQuality: AirQuality | null = null;
+  localPollutants: Pollutants | null = null;
   subscriptions: Subscription[] = [];
-  apiKey: string = '';
+  apiKey: string = process.env['GOOGLE_MAPS_API_KEY'] || '';
   location: any = null;
 
   constructor(private mapsService: MapsService) { }
 
   async ngOnInit() {
     await this.mapsService.initMaps();
-    this.subscriptions.push(this.mapsService.placeSuggestions$.subscribe((suggestions: any) => {
-      this.suggestedLocations = suggestions;
-    }));
-    this.subscriptions.push(this.mapsService.locationCoords$.subscribe((coords: any) => {
-      this.placeCoords = coords;
-    }));
-    this.subscriptions.push(this.mapsService.selectedLocation$.subscribe((location: any) => {
-      this.location = location;
-    }));
-    this.subscriptions.push(this.mapsService.localAirquality$.subscribe((airQuality: any) => {
-      console.log("localAirquality", airQuality);
-    }));
-
+    this.subscriptions = [
+      this.mapsService.placeSuggestions$.subscribe((suggestions: any) => {
+        this.suggestedLocations = suggestions;
+      }),
+      this.mapsService.locationCoords$.subscribe((coords: any) => {
+        this.placeCoords = coords;
+      }),
+      this.mapsService.selectedLocation$.subscribe((location: Location) => {
+        this.location = location;
+      }),
+      this.mapsService.localAirquality$.subscribe((airQuality: AirQuality | null) => {
+        this.localAirQuality = airQuality;
+      }),
+      this.mapsService.localPollutants$.subscribe((pollutants: Pollutants) => {
+        this.localPollutants = pollutants;
+        this.localPollutants?.results[0]?.measurements.sort((a, b) => {
+          // console.log(a, b);
+          return b.value - a.value;
+        });
+      })
+    ];
     this.apiKey = this.mapsService.key;
-
   }
 
 
@@ -54,7 +65,6 @@ export class SimulationViewComponent implements OnDestroy {
 
   handleFormOnSelected(location: any) {
     this.mapsService.setSelectedLocation(location);
-    //update simulation
   }
 
   ngOnDestroy() {

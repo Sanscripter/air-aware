@@ -1,18 +1,47 @@
 <div class="flex md:flex-row flex-col h-full w-full">
-  <div class="md:w-1/2 md:overflow-hidden w-full h-full bg-black">
-    <map-wrapper [placeCoords]="placeCoords" [key]="apiKey"></map-wrapper>
+  <div class="md:w-2/3 md:overflow-hidden w-full h-full bg-black">
+    <div class="absolute z-10 top-5 text-purple-700 mx-5 w-1/2 p-3">
+      <h1 class="text-4xl font-extrabold break-words drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{{location?.description}}</h1>
+      <p class="text-xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)]">{{localAirQuality?.dateTime | date}}</p>
+    </div>
+    <map-wrapper [placeCoords]="placeCoords" [key]="apiKey" [airQuality]="localAirQuality"></map-wrapper>
   </div>
   <div
-    class="top-[50%] md:top-0 md:relative absolute md:rounded-s-lg md:rounded-e-none rounded-t-lg h-4/5 md:w-1/2 md:h-full z-10 bg-green-600 lg:p-24 xl:p-30 md:pt-40 md:p-10 pt-10 px-10  justify-between text-center md:text-left">
-    <h1 class="text-4xl font-extrabold break-words">{{location.description}}</h1>
-    <p>AIR QUALITY INDEX</p>
-    <p>Time</p>
-    <p>Dominant pollutant</p>
-
+    class="p-3 h-full flex flex-col top-[50%] md:top-0 md:relative absolute md:rounded-s-lg md:rounded-e-none rounded-t-lg md:w-1/3 md:h-full z-10 bg-green-600 justify-between text-center md:text-left">
     <p class="my-5 text-lg text-right">{{'console.air-quality' | translate}}</p>
-    <p class="my-5 text-lg text-right">{{'console.pollutants' | translate}}</p>
-    <p class="my-5 text-lg text-right">pollutant data</p>
-    <search-form [suggestionsList]="suggestedLocations" (onChange)="handleFormOnChange($event)"
-    (onSelected)="handleFormOnSelected($event)"></search-form>
+    @if(localAirQuality?.indexes?.[0]) {
+    <div>
+      <p>Quality ({{localAirQuality?.indexes?.[0]?.displayName}}):</p>
+      <p>{{localAirQuality?.indexes?.[0]?.category}}</p>
+      <p>Main Pollutant:</p>
+      <p>{{localAirQuality?.indexes?.[0]?.dominantPollutant}}</p>
+    </div>
+    }
+
+
+    <div class="overflow-y-scroll h-2/3">
+
+      @if(localPollutants && localPollutants.results && localPollutants.results.length) {
+      <div>
+        <p class="my-5 text-lg text-right">{{'console.pollutants' | translate}}</p>
+        @for (pollutant of localPollutants.results[0].measurements; track $index) {
+        <div>
+          <p>Parameter:</p>
+          <p>{{pollutant.parameter}}</p>
+          <p>Value:</p>
+          <p>{{pollutant.value}} {{pollutant.unit}}</p>
+          <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+          </div>
+        </div>
+        }
+      </div>
+      }
+    </div>
+
+    <div>
+      <search-form [suggestionsList]="suggestedLocations" (onChange)="handleFormOnChange($event)"
+        (onSelected)="handleFormOnSelected($event)"></search-form>
+    </div>
+    <app-footer></app-footer>
   </div>
-</div>
