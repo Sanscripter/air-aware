@@ -7,9 +7,16 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - master
 jobs:
+
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Create Coverage Badges
+        uses: jaywcjlove/coverage-badges-cli@main
+        with:
+          source: coverage/coverage-summary.json
+          output: coverage/badges.svg
+          jsonPath: totals.percent_covered
       - uses: actions/checkout@v4
       - run: 'npm i && npm run test && npm run build'
       - uses: FirebaseExtended/action-hosting-deploy@v0
