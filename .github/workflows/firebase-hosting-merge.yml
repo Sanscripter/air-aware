@@ -11,7 +11,7 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: 'npm run test -- --coverage --coverageReporters=json-summary'
+      - run: 'npm i && npm run test -- --coverage --coverageReporters=json-summary'
       - name: Create Coverage Badges
         uses: jaywcjlove/coverage-badges-cli@main
         with:
@@ -19,7 +19,7 @@ jobs:
           output: coverage/badges.svg
           jsonPath: totals.percent_covered
       - uses: actions/checkout@v4
-      - run: 'npm i && npm run build'
+      - run: 'npm run build'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
