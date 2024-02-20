@@ -11,6 +11,7 @@ export interface Location {
 export interface AirQuality {
   dateTime: string;
   indexes: {
+    aqi: number;
     displayName: string;
     category: string;
     dominantPollutant: string;

@@ -1,0 +1,30 @@
+{
+  "pm25": {
+    "good": 12,
+    "moderate": 55.4
+  },
+  "pm10": {
+    "good": 54,
+    "moderate": 154
+  },
+  "o3": {
+    "good": 54,
+    "moderate": 85
+  },
+  "no2": {
+    "good": 53,
+    "moderate": 100
+  },
+  "no": {
+    "good": 53,
+    "moderate": 100
+  },
+  "so2": {
+    "good": 35,
+    "moderate": 75
+  },
+  "co": {
+    "good": 9000,
+    "moderate": 40000
+  }
+}

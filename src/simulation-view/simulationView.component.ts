@@ -7,6 +7,9 @@ import { AirQuality, MapsService, Pollutants } from '../services/maps.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { PollutantInfoPipe } from '../pipes/pollutant-info.pipe';
+import { PollutantIndicatorComponent } from '../pollutant-indicator/pollutant-indicator.component';
+import * as PollutantLevels from '../assets/data/pollutant-levels.json';
+
 @Component({
   selector: 'simulation-view',
   standalone: true,
@@ -18,7 +21,8 @@ import { PollutantInfoPipe } from '../pipes/pollutant-info.pipe';
     SearchFormComponent,
     FooterComponent,
     TranslateModule,
-    PollutantInfoPipe
+    PollutantInfoPipe,
+    PollutantIndicatorComponent
   ]
 })
 export class SimulationViewComponent implements OnDestroy, AfterViewInit{
@@ -54,7 +58,13 @@ export class SimulationViewComponent implements OnDestroy, AfterViewInit{
         this.localPollutants?.results[0]?.measurements.sort((a, b) => {
           return b.value - a.value;
         })
-        this.localPollutants!.results[0].measurements = this.localPollutants.results[0].measurements.filter((measurement) => measurement.value > 0);
+        this.localPollutants!.results[0].measurements = this.localPollutants
+          .results[0]?.measurements.filter((measurement) => measurement.value > 0)
+          .sort((a, b) => {
+            const levelsA = (PollutantLevels as Record<string, any>)[a.parameter];
+            const levelsB = (PollutantLevels as Record<string, any>)[b.parameter];
+            return b.value / levelsB['moderate'] - a.value / levelsA['moderate'];
+          })
       })
     ];
     this.apiKey = this.mapsService.key;

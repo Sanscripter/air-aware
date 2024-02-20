@@ -1,0 +1,9 @@
+<div class="flex flex-col px-5 my-2">
+  <div class="flex flex-row justify-between w-full">
+    <p [innerHTML]="pollutant.parameter | pollutantInfo"></p>
+    <p>{{pollutant.value | number: '1.1-2'}} {{pollutant.unit}}</p>
+  </div>
+  <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+    <div class="h-2.5 rounded-full" [ngClass]="barColor" [ngStyle]="{'width': barLength}"></div>
+  </div>
+</div>
