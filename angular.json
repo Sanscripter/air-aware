@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "3d-map-visualize": {
+    "air-aware": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -72,10 +72,10 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "3d-map-visualize:build:production"
+              "buildTarget": "air-aware:build:production"
             },
             "development": {
-              "buildTarget": "3d-map-visualize:build:development"
+              "buildTarget": "air-aware:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "3d-map-visualize:build"
+            "buildTarget": "air-aware:build"
           }
         },
         "test": {
