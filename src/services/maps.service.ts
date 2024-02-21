@@ -90,6 +90,7 @@ export class MapsService {
   }
 
   getPlaceCoords() {
+    if (!this.google?.maps || !this._selectedLocation) return;
     const geocoder = new this.google!.maps.Geocoder();
     geocoder.geocode({
       placeId: this._selectedLocation.place_id,

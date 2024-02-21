@@ -24,7 +24,8 @@ describe('LandingComponent', () => {
             initMaps: () => {},
             getPlaceSuggestions: () => {},
             setSelectedLocation: () => {},
-            placeSuggestions$: of([])
+            placeSuggestions$: of([]),
+            getPlaceCoords: () => {},
           }
         },
       ]
