@@ -60,7 +60,7 @@ describe('LandingComponent', () => {
     it('should call setSelectedLocation and router navigate', () => {
       const location = { location: 'location' };
       const setSelectedLocationSpy = jest.spyOn(component.mapsService, 'setSelectedLocation');
-      const navigateSpy = spyOn(component['router'], 'navigate');
+      const navigateSpy = jest.spyOn(component['router'], 'navigate');
       component.handleFormOnSelected(location);
       expect(setSelectedLocationSpy).toHaveBeenCalledWith(location);
       expect(navigateSpy).toHaveBeenCalledWith(['/quality']);
