@@ -12,21 +12,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - env:
-          GOOGLE_MAPS_API_KEY: ${{ vars.GOOGLE_MAPS_API_KEY }}
-          ENTITY_SQUARE_SIZE_DEGREES: ${{ vars.ENTITY_SQUARE_SIZE_DEGREES }}
-          POLYLINE_WIDTH: ${{ vars.POLYLINE_WIDTH }}
-          CAMERA_DISTANCE: ${{ vars.CAMERA_DISTANCE }}
-          CAMERA_HEIGHT_OFFSET: ${{ vars.CAMERA_HEIGHT_OFFSET }}
-          CAMERA_PITCH_DEGREES: ${{ vars.CAMERA_PITCH_DEGREES }}
-          CAMERA_HEADING_DEGREES: ${{ vars.CAMERA_HEADING_DEGREES }}
-          FLY_ANIMATION_DURATION_SECONDS: ${{ vars.FLY_ANIMATION_DURATION_SECONDS }}
-          CAMERA_ANIMATION_RANGE_RIGHT: ${{ vars.CAMERA_ANIMATION_RANGE_RIGHT }}
-          CAMERA_ANIMATION_RANGE_LEFT: ${{ vars.CAMERA_ANIMATION_RANGE_LEFT }}
-          CAMERA_ANIMATION_RANGE_UP: ${{ vars.CAMERA_ANIMATION_RANGE_UP }}
-          CAMERA_ANIMATION_RANGE_DOWN: ${{ vars.CAMERA_ANIMATION_RANGE_DOWN }}
-          CLOUD_HEIGHT: ${{ vars.CLOUD_HEIGHT }}
-        run: npm i && npm run test && npm run build
+      - run: |
+          echo "GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}" >> .env
+          echo "ENTITY_SQUARE_SIZE_DEGREES=${{ vars.ENTITY_SQUARE_SIZE_DEGREES }}" >> .env
+          echo "POLYLINE_WIDTH=${{ vars.POLYLINE_WIDTH }}" >> .env
+          echo "CAMERA_DISTANCE=${{ vars.CAMERA_DISTANCE }}" >> .env
+          echo "CAMERA_HEIGHT_OFFSET=${{ vars.CAMERA_HEIGHT_OFFSET }}" >> .env
+          echo "CAMERA_PITCH_DEGREES=${{ vars.CAMERA_PITCH_DEGREES }}" >> .env
+          echo "CAMERA_HEADING_DEGREES=${{ vars.CAMERA_HEADING_DEGREES }}" >> .env
+          echo "FLY_ANIMATION_DURATION_SECONDS=${{ vars.FLY_ANIMATION_DURATION_SECONDS }}" >> .env
+          echo "CAMERA_ANIMATION_RANGE_RIGHT=${{ vars.CAMERA_ANIMATION_RANGE_RIGHT }}" >> .env
+          echo "CAMERA_ANIMATION_RANGE_LEFT=${{ vars.CAMERA_ANIMATION_RANGE_LEFT }}" >> .env
+          echo "CAMERA_ANIMATION_RANGE_UP=${{ vars.CAMERA_ANIMATION_RANGE_UP }}" >> .env
+          echo "CAMERA_ANIMATION_RANGE_DOWN=${{ vars.CAMERA_ANIMATION_RANGE_DOWN }}" >> .env
+          npm i && npm run test && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
