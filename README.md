@@ -11,6 +11,8 @@ The aim of this project is to display the current air quality on a given place r
 
 This is a project to study Google Maps APIs and how to work with CesiumJs viewer.
 
+![Here is a post about this project om my medium](https://medium.com/@Sanscripter/teaching-myself-cesiumjs-and-air-quality-by-building-air-aware-1fec2ed3a14e)
+
 ## Development
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10 and uses Tailwind for layouting and styling.
