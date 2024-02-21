@@ -14,7 +14,7 @@ describe('FooterComponent', () => {
         TranslateModule.forRoot()
       ],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
@@ -23,5 +23,17 @@ describe('FooterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('Open and Close Privacy Policy', () => {
+    it('should open privacy policy', () => {
+      component.openPrivacyPolicy();
+      expect(component.showPrivacyPolicy).toBe(true);
+    });
+
+    it('should close privacy policy', () => {
+      component.closePrivacyPolicy();
+      expect(component.showPrivacyPolicy).toBe(false);
+    });
   });
 });

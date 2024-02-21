@@ -36,6 +36,9 @@ export class LandingComponent {
 
 
   handleFormOnChange(formValue: FormValue) {
+    if (!formValue.location) {
+      return;
+    }
     this.mapsService.getPlaceSuggestions(formValue.location);
   }
 
