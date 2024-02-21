@@ -1,7 +1,7 @@
 # Air Pollution Visualizer
 
 ![Deploy](https://github.com/Sanscripter/air-aware/actions/workflows/firebase-hosting-merge.yml/badge.svg)
-![Coverage](./coverage/badges.svg)
+![Coverage](src\assets\badges\badges.svg)
 
 The aim of this project is to display the current air quality on a given place rendered as a "pollution-level cloud" on 3D map tiles.
 
