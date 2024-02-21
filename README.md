@@ -5,6 +5,10 @@
 
 The aim of this project is to display the current air quality on a given place rendered as a "pollution-level cloud" on 3D map tiles.
 
+![Buenos Aires](src/assets/images/image.png)
+
+![Rio de Janeiro](src/assets/images/image-1.png)
+
 This is a project to study Google Maps APIs and how to work with CesiumJs viewer.
 
 ## Development
