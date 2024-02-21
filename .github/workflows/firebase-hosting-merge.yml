@@ -19,6 +19,15 @@ jobs:
           source: coverage/coverage-summary.json
           output: coverage/badges.svg
           jsonPath: totals.percent_covered
+      - run: npm i coverage-badges-cli -g
+      - run: coverage-badges --output coverage/badges.svg
+
+      - name: Deploy badges
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./coverage
       - run: 'npm run build'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
