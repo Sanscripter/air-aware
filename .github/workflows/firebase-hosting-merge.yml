@@ -12,23 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: 'npm i && npm run coverage'
-      - name: Create Coverage Badges
-        uses: jaywcjlove/coverage-badges-cli@main
-        with:
-          source: coverage/coverage-summary.json
-          output: coverage/badges.svg
-          jsonPath: totals.percent_covered
-      - run: npm i coverage-badges-cli -g
-      - run: coverage-badges --output coverage/badges.svg
-
-      - name: Deploy badges
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/master'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./coverage
-      - run: 'npm run build'
+      - run: 'npm i && npm run coverage && npm run build'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
