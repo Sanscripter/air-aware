@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: 'npm i && npm run coverage && npm run build'
+      - run: echo ${{secrets}}
+      - run: echo ${{vars}}
+      - run: npm i && npm run test && npm run build
         env:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
           ENTITY_SQUARE_SIZE_DEGREES: ${{ vars.ENTITY_SQUARE_SIZE_DEGREES }}
