@@ -1,6 +1,6 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
-import { BoundingSphere, Cartesian2, Cartesian3, Cartographic, Cesium3DTileStyle, Cesium3DTileset, CircleEmitter, CloudCollection, Color, ConstantProperty, Ellipsoid, HeadingPitchRange, HeightReference, ImageryLayer, JulianDate, Matrix4, OpenStreetMapImageryProvider, ParticleSystem, PolygonHierarchy, RequestScheduler, SampledPositionProperty, SceneMode, SphereEmitter, Terrain, Viewer, createWorldTerrainAsync, sampleTerrainMostDetailed, viewerDragDropMixin } from "cesium";
+import { HttpClientModule } from '@angular/common/http';
+import { Component, Input, OnChanges } from '@angular/core';
+import { BoundingSphere, Cartesian3, Cartographic, Cesium3DTileset, CircleEmitter, CloudCollection, Color, ConstantProperty, Ellipsoid, HeadingPitchRange, HeightReference, ImageryLayer, JulianDate, Matrix4, OpenStreetMapImageryProvider, ParticleSystem, PolygonHierarchy, RequestScheduler, SampledPositionProperty, SceneMode, SphereEmitter, Terrain, Viewer, createWorldTerrainAsync, sampleTerrainMostDetailed, viewerDragDropMixin } from "cesium";
 import { AirQuality } from '../services/maps.service';
 
 

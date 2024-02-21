@@ -34,6 +34,8 @@ export class PollutantInfoPipe implements PipeTransform {
         return 'PM<sub>2.5</sub> <br> <p class="text-xs"> (Particulate Matter 2.5)</p>';
       case Pollutant.SO2:
         return 'SO<sub>2</sub> <br> <p class="text-xs"> (Sulfur Dioxide)</p>';
+      default:
+        return 'UNKNOWN POLLUTANT';
     }
   }
 

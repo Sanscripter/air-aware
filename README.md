@@ -1,4 +1,4 @@
-# Air Pollution Visualizer
+# Air Aware
 
 ![Deploy](https://github.com/Sanscripter/air-aware/actions/workflows/firebase-hosting-merge.yml/badge.svg)
 ![Coverage](src/assets/badges/badges.svg)

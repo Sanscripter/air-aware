@@ -96,16 +96,18 @@ export class MapsService {
       placeId: this._selectedLocation.place_id,
     }, (results: any, status: any) => {
       if (status == this.google?.maps.GeocoderStatus.OK) {
-        const latitude = results[0].geometry.location.lat();
-        const longitude = results[0].geometry.location.lng();
-        this._locationCoords = {
-          latitude,
-          longitude,
-        }
-        this.locationCoords$.next(this._locationCoords);
+        this.updateLocation(results[0].geometry.location);
         this.getAirQuality();
       }
     });
+  }
+
+  updateLocation(location: any) {
+    this._locationCoords = {
+      latitude: location.lat(),
+      longitude: location.lng(),
+    };
+    this.locationCoords$.next(this._locationCoords);
   }
 
   getAirQuality() {
