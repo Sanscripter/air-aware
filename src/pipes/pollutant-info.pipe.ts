@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 enum Pollutant {
   CO = "CO",
   NO2 = "NO2",
+  NO = "NO",
   O3 = "O3",
   PM10 = "PM10",
   PM25 = "PM25",
@@ -23,6 +24,8 @@ export class PollutantInfoPipe implements PipeTransform {
         return 'CO <br> <p class="text-xs"> (Carbon Monoxide)</p>';
       case Pollutant.NO2:
         return 'NO<sub>2</sub> <br> <p class="text-xs"> (Nitrogen Dioxide)</p>';
+      case Pollutant.NO:
+        return 'NO <br> <p class="text-xs"> (Nitric Oxide)</p>';
       case Pollutant.O3:
         return 'O<sub>3</sub> <br> <p class="text-xs"> (Ozone)</p>';
       case Pollutant.PM10:
